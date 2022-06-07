@@ -1,7 +1,6 @@
+# Dependencies
 
-.vscode
-
-node_modules
-
-server/node_modules
+/.vscode
+/node_modules
+/server/node_modules
 
