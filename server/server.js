@@ -18,6 +18,8 @@ app.use(bodyparser.urlencoded({ extended: true }));
 // set view engine defaults
 app.set("view engine", "ejs");
 
+// load assets
+app.use("/css");
 app.get("/", (req, res) => {
   res.render("index");
 });
