@@ -17,14 +17,11 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 // set view engine defaults
 app.set("view engine", "ejs");
-// app.set("view",path.resolve(__dirname,"views/ejs"))
-
-//load assets
-app.use("/", express.static(path.resolve(__dirname, "/")));
 
 app.get("/", (req, res) => {
-  res.send("Crud Application");
+  res.render("index");
 });
+// app.use(express.static("./client/src/index.js"));
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
