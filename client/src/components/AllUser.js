@@ -5,12 +5,34 @@ import {
   TableBody,
   TableCell,
   TableHead,
+  styled,
+  Button,
 } from "@mui/material";
 
-import { getUsers } from "../server/api.js";
+import { getUsers, deleteUser } from "../server/api.js";
+import { Link } from "react-router-dom";
+
+const StyledTable = styled(Table)`
+  width: 90%;
+  margin: 50px auto 0 auto;
+`;
+
+const Thead = styled(TableRow)`
+  background: #000000;
+  & > th {
+    color: #ffff;
+    font-size: 20px;
+  }
+`;
+
+const TBody = styled(TableRow)`
+  & > td {
+    font-size: 20px;
+  }
+`;
 
 const AllUsers = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState();
   console.log(users);
   useEffect(() => {
     getAllUsers();
@@ -22,10 +44,15 @@ const AllUsers = () => {
     // console.log(response.data);
   };
 
+  const deleteUserDetails = async () => {
+    await deleteUser();
+    getAllUsers();
+  };
+
   return (
-    <Table>
+    <StyledTable>
       <TableHead>
-        <TableRow>
+        <Thead>
           <TableCell>Id</TableCell>
           <TableCell>name</TableCell>
           <TableCell>birth</TableCell>
@@ -34,12 +61,12 @@ const AllUsers = () => {
           <TableCell>salary</TableCell>
           <TableCell>debts</TableCell>
           <TableCell>date</TableCell>
-          {/* <TableCell>Actions</TableCell> */}
-        </TableRow>
+          <TableCell>Actions</TableCell>
+        </Thead>
       </TableHead>
       <TableBody>
         {/* {users.map((user) => (
-          <TableRow>
+          <TBody key={user._id}>
             <TableCell>{user._id}</TableCell>
             <TableCell>{user.name}</TableCell>
             <TableCell>{user.birth}</TableCell>
@@ -48,10 +75,14 @@ const AllUsers = () => {
             <TableCell>{user.salary}</TableCell>
             <TableCell>{user.debts}</TableCell>
             <TableCell>{user.date}</TableCell>
-          </TableRow>
+            <TableCell>
+              <Button variant="contained" style = {{marginRight: 10}} component={Link} to ={`/edit/${user._id}`}>Edit</Button>
+              <Button variant="contained" color="secondary" onClick= {()=> deleteUserDetails(user._id)}>Delete</Button>
+            </TableCell>
+          </TBody>
         ))} */}
       </TableBody>
-    </Table>
+    </StyledTable>
   );
 };
 

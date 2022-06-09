@@ -10,6 +10,7 @@ import {
   Button,
 } from "@mui/material";
 import { addUser } from "../server/api";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled(FormGroup)`
   width: 50%;
@@ -32,6 +33,8 @@ const defaultValue = {
 const AddUsers = () => {
   const [user, setUser] = useState(defaultValue);
 
+  const navigate = useNavigate();
+
   const onValueChange = (e) => {
     // console.log(e.target.name, e.target.value);
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -40,6 +43,7 @@ const AddUsers = () => {
 
   const addUserDetails = async () => {
     await addUser(user);
+    navigate("/all"); // when fish all input take us to the all users page automatically
   };
 
   return (
