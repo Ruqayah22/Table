@@ -48,7 +48,9 @@ const AddUsers = () => {
 
   return (
     <Container>
-      <Typography variant="h4">Add Users</Typography>
+      <Typography variant="h4">
+        <i class="fa-solid fa-user-plus"></i>Add Users
+      </Typography>
       <FormControl>
         <InputLabel>Name</InputLabel>
         <Input onChange={(e) => onValueChange(e)} name="name" />

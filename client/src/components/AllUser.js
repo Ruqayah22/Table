@@ -40,7 +40,7 @@ const AllUsers = () => {
 
   const getAllUsers = async () => {
     let response = await getUsers();
-    setUsers(response.date);
+    setUsers(response.data.toString());
     // console.log(response.data);
   };
 
@@ -65,7 +65,7 @@ const AllUsers = () => {
         </Thead>
       </TableHead>
       <TableBody>
-        {/* {users.map((user) => (
+        {users.map((user) => (
           <TBody key={user._id}>
             <TableCell>{user._id}</TableCell>
             <TableCell>{user.name}</TableCell>
@@ -76,11 +76,24 @@ const AllUsers = () => {
             <TableCell>{user.debts}</TableCell>
             <TableCell>{user.date}</TableCell>
             <TableCell>
-              <Button variant="contained" style = {{marginRight: 10}} component={Link} to ={`/edit/${user._id}`}>Edit</Button>
-              <Button variant="contained" color="secondary" onClick= {()=> deleteUserDetails(user._id)}>Delete</Button>
+              <Button
+                variant="contained"
+                style={{ marginRight: 10 }}
+                component={Link}
+                to={`/edit/${user._id}`}
+              >
+                Edit <i class="fa-solid fa-pencil"></i>
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={() => deleteUserDetails(user._id)}
+              >
+                Delete <i class="fa-solid fa-trash-can"></i>
+              </Button>
             </TableCell>
           </TBody>
-        ))} */}
+        ))}
       </TableBody>
     </StyledTable>
   );
