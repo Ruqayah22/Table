@@ -1,5 +1,6 @@
 import User from "../schema/user-schema.js";
 
+// Save data of the user in database
 export const addUser = async (req, res) => {
   const user = req.body;
 
@@ -13,9 +14,10 @@ export const addUser = async (req, res) => {
   }
 };
 
+// Get all users
 export const getUsers = async (req, res) => {
   try {
-    const users = await User.find({});
+    const users = await User.find();
 
     res.status(200).json(users);
   } catch (error) {
@@ -23,6 +25,7 @@ export const getUsers = async (req, res) => {
   }
 };
 
+// Get a user by id
 export const getUser = async (req, res) => {
   // console.log(req.params.id);
   try {
@@ -35,8 +38,10 @@ export const getUser = async (req, res) => {
   }
 };
 
+// Save data of edited user in the database
 export const editUser = async (req, res) => {
   let user = req.body;
+
   const editUser = new User(user);
 
   try {
@@ -47,6 +52,7 @@ export const editUser = async (req, res) => {
   }
 };
 
+// deleting data of user from the database
 export const deleteUser = async (req, res) => {
   try {
     await User.deleteOne({ _id: req.params.id });

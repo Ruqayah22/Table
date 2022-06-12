@@ -2,10 +2,10 @@ import React from "react";
 import "./App.css";
 
 // components
-import NavBar from "./components/NavBar";
-import AllUsers from "./components/AllUser";
-import AddUsers from "./components/AddUser";
-import EditUser from "./components/EditUser";
+import NavBar from "./components/NavBar.jsx";
+import AllUsers from "./components/AllUser.jsx";
+import AddUser from "./components/AddUser.jsx";
+import EditUser from "./components/EditUser.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -14,8 +14,8 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/add" element={<AddUsers />} />
         <Route path="/all" element={<AllUsers />} />
+        <Route path="/add" element={<AddUser />} />
         <Route path="/edit/:id" element={<EditUser />} />
       </Routes>
     </BrowserRouter>

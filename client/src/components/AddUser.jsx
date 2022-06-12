@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import {
   FormGroup,
@@ -9,8 +9,11 @@ import {
   styled,
   Button,
 } from "@mui/material";
-import { editUser, getUser } from "../server/api";
-import { useNavigate, useParams } from "react-router-dom";
+import { addUser } from "../server/api";
+import { useNavigate } from "react-router-dom";
+import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
+
+import { Link } from "react-router-dom";
 
 const Container = styled(FormGroup)`
   width: 50%;
@@ -30,20 +33,12 @@ const defaultValue = {
   date: "",
 };
 
-const EditUsers = () => {
+const AddUser = () => {
   const [user, setUser] = useState(defaultValue);
+  const { name, birth, address, phone, salary, debts, date } = user;
 
   const navigate = useNavigate();
-  const { id } = useParams();
-
-  useEffect(() => {
-    loadUserDetails();
-  }, []);
-
-  const loadUserDetails = async () => {
-    const response = await getUser(id);
-    setUser(response.data);
-  };
+  // const allNavigate = usesNavigate();
 
   const onValueChange = (e) => {
     // console.log(e.target.name, e.target.value);
@@ -51,77 +46,101 @@ const EditUsers = () => {
     // console.log(user);
   };
 
-  const editUserDetails = async () => {
-    await editUser(user, id);
+  const addUserDetails = async () => {
+    await addUser(user);
     navigate("/all"); // when fish all input take us to the all users page automatically
+  };
+
+  const navigateToAll = () => {
+    navigate("/all");
   };
 
   return (
     <Container>
-      <Typography variant="h4">Edit Users</Typography>
+      <a href="#" onClick={navigateToAll}>
+        All Users
+      </a>
+      {/* <Button variant="outlined" onClick={navigateToAll}>
+        All Users
+      </Button> */}
+      <Typography variant="h4">
+        <PersonAddAltIcon />
+        Add Users
+      </Typography>
       <FormControl>
-        <InputLabel>Name</InputLabel>
+        <InputLabel htmlFor="my-input">Name</InputLabel>
         <Input
           onChange={(e) => onValueChange(e)}
           name="name"
-          value={user.name}
+          value={name}
+          id="my-input"
         />
       </FormControl>
       <FormControl>
-        <InputLabel>Birth</InputLabel>
+        <InputLabel htmlFor="my-input">Birth</InputLabel>
         <Input
           onChange={(e) => onValueChange(e)}
           name="birth"
-          value={user.birth}
+          value={birth}
+          id="my-input"
         />
       </FormControl>
       <FormControl>
-        <InputLabel>Address</InputLabel>
+        <InputLabel htmlFor="my-input">Address</InputLabel>
         <Input
           onChange={(e) => onValueChange(e)}
           name="address"
-          value={user.address}
+          value={address}
+          id="my-input"
         />
       </FormControl>
       <FormControl>
-        <InputLabel>Phone</InputLabel>
+        <InputLabel htmlFor="my-input">Phone</InputLabel>
         <Input
           onChange={(e) => onValueChange(e)}
           name="phone"
-          value={user.phone}
+          value={phone}
+          id="my-input"
         />
       </FormControl>
       <FormControl>
-        <InputLabel>Salary</InputLabel>
+        <InputLabel htmlFor="my-input">Salary</InputLabel>
         <Input
           onChange={(e) => onValueChange(e)}
           name="salary"
-          value={user.salary}
+          value={salary}
+          id="my-input"
         />
       </FormControl>
       <FormControl>
-        <InputLabel>Debts</InputLabel>
+        <InputLabel htmlFor="my-input">Debts</InputLabel>
         <Input
           onChange={(e) => onValueChange(e)}
           name="debts"
-          value={user.debts}
+          value={debts}
+          id="my-input"
         />
       </FormControl>
       <FormControl>
-        <InputLabel>Date</InputLabel>
+        <InputLabel htmlFor="my-input">Date</InputLabel>
         <Input
           onChange={(e) => onValueChange(e)}
           name="date"
-          value={user.date}
+          value={date}
+          id="my-input"
         />
       </FormControl>
       <FormControl>
-        <Button variant="contained" onClick={() => editUserDetails()}>
-          Add Users
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => addUserDetails()}
+        >
+          Add User
         </Button>
       </FormControl>
     </Container>
   );
 };
 
-export default EditUsers;
+export default AddUser;
