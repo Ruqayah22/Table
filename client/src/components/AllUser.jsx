@@ -21,29 +21,6 @@ import { useStyles } from "../styles";
 import TablePagination from "@mui/material/TablePagination";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-// import Avatar from "@mui/material/core/Avatar";
-
-// import AddUserDialog from "./Dialog.js";
-// import {  useParams } from "react-router-dom";
-
-// const StyledTable = styled(Table)`
-//   width: 90%;
-//   margin: 50px auto 0 auto;
-// `;
-
-// const Thead = styled(TableRow)`
-//   & > th {
-//     background: #000000;
-//     color: #ffff;
-//     font-size: 20px;
-//   }
-// `;
-
-// const TBody = styled(TableRow)`
-//   & > td {
-//     font-size: 20px;
-//   }
-// `;
 
 const AllUsers = () => {
   const [user, setUsers] = useState([]);
@@ -139,22 +116,6 @@ const AllUsers = () => {
                     >
                       <EditIcon />
                     </IconButton>
-                    {/* <Button
-                      color="primary"
-                      variant="contained"
-                      style={{ marginRight: 10 }}
-                      component={Link}
-                      to={`/edit/${user._id}`}
-                    >
-                      Edit <i className="fa-solid fa-pencil"></i>
-                    </Button> */}
-                    {/* <Button
-                      variant="contained"
-                      color="secondary"
-                      onClick={() => deleteUserData(user._id)}
-                    >
-                      Delete <i className="fa-solid fa-trash-can"></i>
-                    </Button> */}
                   </TableCell>
                 </TableRow>
               ))}
