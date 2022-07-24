@@ -138,7 +138,7 @@ const EditUsers = () => {
           color="primary"
           onClick={() => editUserDetails()}
         >
-          Add Users
+          Save Users
         </Button>
       </FormControl>
     </Container>

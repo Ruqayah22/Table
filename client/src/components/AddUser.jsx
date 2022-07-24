@@ -9,11 +9,12 @@ import {
   styled,
   Button,
 } from "@mui/material";
+
 import { addUser } from "../server/api";
 import { useNavigate } from "react-router-dom";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Container = styled(FormGroup)`
   width: 50%;
@@ -38,7 +39,6 @@ const AddUser = () => {
   const { name, birth, address, phone, salary, debts, date } = user;
 
   const navigate = useNavigate();
-  // const allNavigate = usesNavigate();
 
   const onValueChange = (e) => {
     // console.log(e.target.name, e.target.value);

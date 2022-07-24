@@ -20,7 +20,7 @@ const NavBar = () => {
     <Header position="static">
       <Toolbar>
         <Tabs to="/" exact="true">
-          test
+          Home
         </Tabs>
         <Tabs to="/all" exact="true">
           all Users
