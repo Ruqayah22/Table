@@ -13,6 +13,7 @@ import {
   Paper,
   TextField,
   IconButton,
+  Grid,
 } from "@mui/material";
 
 import { getUsers, deleteUser } from "../server/api";
@@ -93,8 +94,18 @@ const AllUsers = () => {
                 <TableRow key={user._id}>
                   <TableCell>{user._id}</TableCell>
                   <TableCell>
-                    <Avatar alt={user.name} src="." />
-                    {user.name}
+                    <Grid container>
+                      <Grid item xs={6}>
+                        <Avatar
+                          // className={classes.avatar}
+                          alt={user.name}
+                          src="."
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        {user.name}
+                      </Grid>
+                    </Grid>
                   </TableCell>
                   <TableCell>{user.birth}</TableCell>
                   <TableCell>{user.address}</TableCell>

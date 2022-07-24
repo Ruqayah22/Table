@@ -13,6 +13,7 @@ import {
 import { addUser } from "../server/api";
 import { useNavigate } from "react-router-dom";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
+import PeopleIcon from "@mui/icons-material/People";
 
 // import { Link } from "react-router-dom";
 
@@ -57,14 +58,13 @@ const AddUser = () => {
 
   return (
     <Container>
-      <a href="#" onClick={navigateToAll}>
-        All Users
-      </a>
-      {/* <Button variant="outlined" onClick={navigateToAll}>
-        All Users
-      </Button> */}
+      {/* <a href="#" onClick={navigateToAll}> */}
+      {/* All Users */}
+      <PeopleIcon onClick={navigateToAll} />
+      {/* </a> */}
+
       <Typography variant="h4">
-        <PersonAddAltIcon />
+        <PersonAddAltIcon fontSize="large" />
         Add Users
       </Typography>
       <FormControl>

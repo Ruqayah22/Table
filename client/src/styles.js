@@ -39,4 +39,11 @@ export const useStyles = makeStyles((theme) => ({
       paddingBottom: "10px",
     },
   },
+  avatar: {
+    "& .MuiAvatar-root": {
+      // backgroundColor: "#000000",
+      color: "#000000",
+      // boxShadow: "20px",
+    },
+  },
 }));

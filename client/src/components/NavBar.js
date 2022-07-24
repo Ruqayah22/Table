@@ -3,6 +3,9 @@ import React from "react";
 import { AppBar, Toolbar, styled } from "@mui/material";
 
 import { NavLink } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
+import PeopleIcon from "@mui/icons-material/People";
 
 const Header = styled(AppBar)`
   background: #111111;
@@ -20,13 +23,16 @@ const NavBar = () => {
     <Header position="static">
       <Toolbar>
         <Tabs to="/" exact="true">
-          Home
+          {/* Home */}
+          <HomeIcon />
         </Tabs>
         <Tabs to="/all" exact="true">
-          all Users
+          {/* all Users */}
+          <PeopleIcon />
         </Tabs>
         <Tabs to="/add" exact="true">
-          add Users
+          {/* add Users */}
+          <PersonAddAltIcon />
         </Tabs>
       </Toolbar>
     </Header>

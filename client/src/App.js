@@ -3,11 +3,11 @@ import "./App.css";
 import { useStyles } from "./styles.js";
 
 // components
-import NavBar from "./components/NavBar.jsx";
-import AllUsers from "./components/AllUser.jsx";
-import AddUser from "./components/AddUser.jsx";
-import EditUser from "./components/EditUser.jsx";
-import HomePage from "./components/HomePage.jsx";
+import NavBar from "./components/NavBar.js";
+import AllUsers from "./components/AllUser.js";
+import AddUser from "./components/AddUser.js";
+import EditUser from "./components/EditUser.js";
+import HomePage from "./components/HomePage.js";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
