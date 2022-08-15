@@ -8,6 +8,7 @@ import AllUsers from "./components/AllUser.js";
 import AddUser from "./components/AddUser.js";
 import EditUser from "./components/EditUser.js";
 import HomePage from "./components/HomePage.js";
+import AllEmployees from "./components/AllEmployees";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/all" element={<AllUsers />} />
         <Route path="/add" element={<AddUser />} />
         <Route path="/edit/:id" element={<EditUser />} />
+        <Route path="/allE" element={<AllEmployees />} />
       </Routes>
     </BrowserRouter>
   );

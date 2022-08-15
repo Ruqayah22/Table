@@ -14,6 +14,7 @@ import { addUser } from "../server/api";
 import { useNavigate } from "react-router-dom";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import PeopleIcon from "@mui/icons-material/People";
+import { useStyles } from "../styles";
 
 // import { Link } from "react-router-dom";
 
@@ -33,6 +34,7 @@ const defaultValue = {
   salary: "",
   debts: "",
   date: "",
+  // actions: "",
 };
 
 const AddUser = () => {
@@ -40,6 +42,8 @@ const AddUser = () => {
   const { name, birth, address, phone, salary, debts, date } = user;
 
   const navigate = useNavigate();
+
+  const classes = useStyles();
 
   const onValueChange = (e) => {
     // console.log(e.target.name, e.target.value);
@@ -58,10 +62,11 @@ const AddUser = () => {
 
   return (
     <Container>
-      {/* <a href="#" onClick={navigateToAll}> */}
-      {/* All Users */}
-      <PeopleIcon onClick={navigateToAll} />
-      {/* </a> */}
+      <Button onClick={navigateToAll} className={classes.Button}>
+        <PeopleIcon onClick={navigateToAll} />
+      </Button>
+
+      {/* <PeopleIcon onClick={navigateToAll} /> */}
 
       <Typography variant="h4">
         <PersonAddAltIcon fontSize="large" />

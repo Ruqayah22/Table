@@ -34,6 +34,10 @@ const NavBar = () => {
           {/* add Users */}
           <PersonAddAltIcon />
         </Tabs>
+        <Tabs to="/allE" exact="true">
+          {/* all Users */}
+          <PeopleIcon />
+        </Tabs>
       </Toolbar>
     </Header>
   );
