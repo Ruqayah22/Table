@@ -1,18 +1,18 @@
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { DataGrid, gridClasses } from "@mui/x-data-grid";
-import { deleteUser, getUsers } from "../server/api";
+import { getUsers } from "../server/api";
 import { grey } from "@mui/material/colors";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import { Link, useNavigate } from "react-router-dom";
-// import Actions from "./Actions";
+// import DeleteIcon from "@mui/icons-material/Delete";
+// import EditIcon from "@mui/icons-material/Edit";
+// import { useNavigate } from "react-router-dom";
+import ActionsEmp from "./ActionsEmp";
 
 const AllEmployees = () => {
   const [user, setUsers] = useState([]);
 
   const [page, setPage] = useState(5);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const getAllUsers = async () => {
     let response = await getUsers("all");
@@ -23,15 +23,15 @@ const AllEmployees = () => {
     getAllUsers();
   }, []);
 
-  const deleteUserData = async (id) => {
-    await deleteUser(id);
-    getAllUsers();
-  };
+  // const deleteUserData = async (id) => {
+  //   await deleteUser(id);
+  //   getAllUsers();
+  // };
 
-  const navigateToAdd = () => {
-    // 👇️ navigate to /contacts
-    navigate("/add");
-  };
+  // const navigateToAdd = () => {
+  //   // 👇️ navigate to /contacts
+  //   navigate("/add");
+  // };
 
   const columns = [
     { field: "_id", headerName: "ID", width: 60 },
@@ -47,49 +47,7 @@ const AllEmployees = () => {
       headerName: "Actions",
       type: "actions",
       width: 200,
-      renderCell: () => {
-        return (
-          <Box>
-            <IconButton
-              aria-label="delete"
-              onClick={() => deleteUserData(user._id)}
-            >
-              <DeleteIcon />
-            </IconButton>
-            <IconButton
-              aria-label="delete"
-              component={Link}
-              to={`/edit/${user._id}`}
-            >
-              <EditIcon />
-            </IconButton>
-          </Box>
-        );
-      },
-      //   getActions: (params) => [
-      //     <IconButton
-      //       aria-label="delete"
-      //       onClick={() => deleteUserData(user._id)}
-      //     >
-      //       <DeleteIcon />
-      //     </IconButton>,
-      //     <IconButton
-      //       aria-label="delete"
-      //       component={Link}
-      //       to={`/edit/${user._id}`}
-      //     >
-      //       <EditIcon />
-      //     </IconButton>,
-      //   ],
-
-      //   renderCell: (params) => {
-      //     <IconButton
-      //       aria-label="delete"
-      //       onClick={() => deleteUserData(user._id)}
-      //     >
-      //       <DeleteIcon />
-      //     </IconButton>;
-      //   },
+      renderCell: (params) => <ActionsEmp {...{ params }} />,
     },
   ];
 

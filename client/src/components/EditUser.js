@@ -10,7 +10,7 @@ import {
   Button,
 } from "@mui/material";
 
-import { editUser, getUsers } from "../server/api";
+import { editUser, getUser, getUsers } from "../server/api";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Container = styled(FormGroup)`
@@ -29,6 +29,7 @@ const defaultValue = {
   salary: "",
   debts: "",
   date: "",
+  // actions: "",
 };
 
 const EditUsers = () => {
@@ -44,6 +45,7 @@ const EditUsers = () => {
 
   const loadUserDetails = async () => {
     const response = await getUsers(id);
+    // console.log(response);
     setUser(response.data);
   };
 
@@ -135,7 +137,7 @@ const EditUsers = () => {
       <FormControl>
         <Button
           variant="contained"
-          color="primary"
+          sx={{ background: "#000000", color: "#fff" }}
           onClick={() => editUserDetails()}
         >
           Save Users

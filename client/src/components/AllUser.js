@@ -71,7 +71,6 @@ const AllUsers = () => {
       }}
     >
       {/* <TextField label="Search input" sx={{ margin: "5px 0 30px 10px" }} /> */}
-
       <Button
         onClick={navigateToAdd}
         sx={{
@@ -86,6 +85,7 @@ const AllUsers = () => {
       >
         <PersonAddAltIcon />
       </Button>
+
       <SearchBar />
       <Table stickyHeader aria-label="sticky table">
         <TableHead
@@ -150,7 +150,7 @@ const AllUsers = () => {
                     <DeleteIcon />
                   </IconButton>
                   <IconButton
-                    aria-label="delete"
+                    aria-label="edit"
                     component={Link}
                     to={`/edit/${user._id}`}
                   >
@@ -162,7 +162,6 @@ const AllUsers = () => {
         </TableBody>
       </Table>
       {/* <AddUserDialog open={open} handleClose={handleClose} /> */}
-
       <TablePagination
         rowsPerPageOptions={[5, 10, 20]}
         component="div"
